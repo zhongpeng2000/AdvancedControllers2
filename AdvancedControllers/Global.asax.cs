@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using AdvancedControllers.Infrastructure;
 
 namespace AdvancedControllers
 {
@@ -13,6 +14,8 @@ namespace AdvancedControllers
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
+            ControllerBuilder.Current.SetControllerFactory(new DefaultControllerFactory(new CustomControllerActivtor()));
         }
     }
 }
